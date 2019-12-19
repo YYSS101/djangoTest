@@ -1,20 +1,57 @@
-<html>
-    <head>
-        <title>Django K</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django K</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-{% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
-{% endfor %}
+{% block content %}
+
+	<div class="btnHeader">
+		<a class="btns" href="{% url 'post_new' %}">
+			<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-mug-hot"></i> 有給申請</button>
+		</a>
+		<a class="btns" href="{% url 'post_new' %}">
+			<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-moon"></i> 残業申請</button>
+		</a>
+		<a class="btns" href="{% url 'post_new' %}">
+			<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-shuttle-van"></i> 休日出勤申請</button>
+		</a>
+		<a class="btns" href="{% url 'post_new' %}">
+			<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-plane"></i> 出張申請</button>
+		</a>
+	</div>
+
+	<table class="table table-striped">
+
+		<thead class="thead-dark">
+			<th>申請日</th>
+			<th>申請者</th>
+			<th>内容</th>
+			<th>詳細</th>
+		</thead>
+
+		{% for post in posts %}
+
+	<!--
+		<div class="post">
+			<div class="date">
+				<p>published: {{ post.published_date }}</p>
+			</div>
+			<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+			<p>{{ post.text|linebreaksbr }}</p>
+		</div>
+		-->
+
+		
+			<tr>
+				<td>{{ post.published_date|date:"Y年n月j日 H:i" }}</td>
+				<td>{{ post.user }}</td>
+				<td>{{ post.title }}</td>
+				<td><a href="{% url 'post_detail' pk=post.pk %}"><i class="fas fa-info-circle"></i></a></td>
+			</tr>
+		
+		
+		
+		
+	{% endfor %}
+
+	</table>
 
 
-    </body>
-</html>
+{% endblock %}
