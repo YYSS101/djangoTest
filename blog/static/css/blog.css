@@ -10,6 +10,16 @@
     text-decoration: none;
 }
 
+h2{
+	padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+	color: #494949;/*文字色*/
+	background: #f4f4f4;/*背景色*/
+	border-left: solid 5px #7db4e6;/*左線*/
+	border-bottom: solid 3px #d7d7d7;/*下線*/
+}
+
+
+
 .content {
     margin-left: 10px;
 }
@@ -49,4 +59,25 @@
 }
 .btns {
     margin: 10px;
+}
+
+
+.btn-box {
+	position: relative;
+	margin: 2em auto;
+	padding: 1.2em;
+	width: 90%;
+	color: #555555; /* 文字色 */
+	background-color: #fff;
+	border: 2px solid #9f91f0; /* 枠線の太さ・色 */
+	box-shadow: 0 0 5px 2px #ccc4fc inset;/* 影の色 */
+}
+.btn_box-title {
+	position: absolute;
+	padding: 0.5em;
+	left: 20px;
+	top: -15px;
+	font-weight: bold;
+	background-color:  #fff; /* タイトル背景色 */
+	color: #aa91f0; /* タイトル文字色 */
 }
