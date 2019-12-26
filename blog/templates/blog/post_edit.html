@@ -2,8 +2,32 @@
 
 {% block content %}
     <h2>New post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
+    <form method="POST" class="post-form">
+		{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
+        <button type="submit" class="save btn">Save</button>
+	</form>
+
+	<table class="table table-striped">
+
+		<thead class="thead">
+			<th>申請日</th>
+			<th>申請者</th>
+			<th>内容</th>
+			<th>詳細</th>
+		</thead>
+
+		{% for post in posts %}
+
+			<tr>
+				<td>{{ post.published_date|date:"Y年n月j日 H:i" }}</td>
+				<td>{{ post.user }}</td>
+				<td>{{ post.title }}</td>
+				<td><a href="{% url 'post_detail' pk=post.pk %}"><i class="fas fa-info-circle"></i></a></td>
+			</tr>
+
+		{% endfor %}
+
+	</table>
+
 {% endblock %}

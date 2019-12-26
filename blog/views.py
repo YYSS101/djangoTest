@@ -3,6 +3,13 @@ from django.utils import timezone
 from .models import Post
 from .forms import PostForm
 
+def debug_test(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:20]
+    return render(request, 'blog/test.html', {'posts': posts})
+
+def page_non(request):
+    return render(request, 'blog/page_non.html')
+
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:20]
     return render(request, 'blog/post_list.html', {'posts': posts})
@@ -22,7 +29,8 @@ def post_new(request):
             return redirect('post_list')
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:20]
+    return render(request, 'blog/post_edit.html', {'form': form, 'posts': posts})
 
 def tips_kitei(request):
     return render(request, 'blog/tips_kitei.html')

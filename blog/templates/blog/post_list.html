@@ -2,63 +2,71 @@
 
 {% block content %}
 
-	<div class="btnHeader">
+<div class="row">
+	<div class="col-md-4">
+		<div class="btnHeader">
 
-		<div class="btn-box"><span class="btn_box-title">文章資料</span>
-			<a class="btns" href="{% url 'tips_kitei' %}">
-				<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-book-open"></i> 社内規則</button>
-			</a>
-			<a class="btns" href="{% url 'post_new' %}">
-				<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-cogs"></i> 技術資料</button>
-			</a>
-			<a class="btns" href="{% url 'post_new' %}">
-				<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-user-alt"></i> 社内ルール</button>
-			</a>
+			<div class="btn-box"><span class="btn_box-title">文章資料</span>
+				<a class="btns" href="{% url 'tips_kitei' %}">
+					<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-book-open"></i> 社内規則</button>
+				</a>
+				<a class="btns" href="{% url 'page_non' %}">
+					<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-building"></i> 職制表</button>
+				</a>
+				<a class="btns" href="{% url 'page_non' %}">
+					<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-cogs"></i> 技術資料</button>
+				</a>
+				<a class="btns" href="{% url 'page_non' %}">
+					<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-user-alt"></i> 社内ルール</button>
+				</a>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col-md-4">
+
+		<div class="btnHeader">
+			<div class="btn-box"><span class="btn_box-title">管理</span>
+				<a class="btns" href="{% url 'page_non' %}">
+					<button type="submit" class="btn btn-success btn-lg btn-block"><i class="fas fa-calendar-alt"></i> 日程表</button>
+				</a>
+			</div>
 		</div>
 
-		<div class="btn-box"><span class="btn_box-title">管理</span>
-			<a class="btns" href="{% url 'post_new' %}">
-				<button type="submit" class="btn btn-warning btn-lg btn-block"><i class="fas fa-calendar-alt"></i> 日程表</button>
-			</a>
-		</div>
-
-		<div class="btn-box"><span class="btn_box-title">申請</span>
-			<a class="btns" href="{% url 'post_new' %}">
-				<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-mug-hot"></i> 有給申請</button>
-			</a>
-			<a class="btns" href="{% url 'post_new' %}">
-				<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-moon"></i> 残業申請</button>
-			</a>
-			<a class="btns" href="{% url 'post_new' %}">
-				<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-shuttle-van"></i> 休日出勤申請</button>
-			</a>
-			<a class="btns" href="{% url 'post_new' %}">
-				<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-plane"></i> 出張申請</button>
-			</a>
+		<div class="btnHeader">
+			<div class="btn-box"><span class="btn_box-title">掲示板</span>
+				<a class="btns" href="{% url 'page_non' %}">
+					<button type="submit" class="btn btn-success btn-lg btn-block"><i class="fas fa-chalkboard-teacher"></i> ご意見箱</button>
+				</a>
+			</div>
 		</div>
 
 	</div>
 
-	<table class="table table-striped">
+	<div class="col-md-4">
 
-		<thead class="thead-dark">
-			<th>申請日</th>
-			<th>申請者</th>
-			<th>内容</th>
-			<th>詳細</th>
-		</thead>
+		<div class="btnHeader">
+			<div class="btn-box"><span class="btn_box-title">申請</span>
+				<a class="btns" href="{% url 'post_new' %}">
+					<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-mug-hot"></i> 有給申請</button>
+				</a>
+				<a class="btns" href="{% url 'page_non' %}">
+					<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-moon"></i> 残業申請</button>
+				</a>
+				<a class="btns" href="{% url 'page_non' %}">
+					<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-shuttle-van"></i> 休日出勤申請</button>
+				</a>
+				<a class="btns" href="{% url 'page_non' %}">
+					<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-plane"></i> 出張申請</button>
+				</a>
+			</div>
+		</div>
 
-		{% for post in posts %}
+	</div>
 
-			<tr>
-				<td>{{ post.published_date|date:"Y年n月j日 H:i" }}</td>
-				<td>{{ post.user }}</td>
-				<td>{{ post.title }}</td>
-				<td><a href="{% url 'post_detail' pk=post.pk %}"><i class="fas fa-info-circle"></i></a></td>
-			</tr>
+</div>
 
-		{% endfor %}
 
-	</table>
 
 {% endblock %}

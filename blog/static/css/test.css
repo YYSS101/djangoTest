@@ -1,3 +1,15 @@
+body{
+	width:100%; /*ページ全体の幅は100%と指定する*/
+	text-align:center; /*ページ全体を中央揃えにする*/
+}
+#wrap{
+	width: 1000px;	   /*全体の幅を指定する*/
+	margin: 0 auto;    /*マージンの指定をする、ブラウザ対策*/
+	text-align:left;   /*全体を左揃えにする。*/
+}
+
+
+
 
 .page-header {
     background-color: #00ff;
@@ -10,6 +22,9 @@
     font-size: 30pt;
     text-decoration: none;
 }
+
+
+
 
 h2{
 	padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
@@ -31,8 +46,7 @@ h2{
 }
 
 .save {
-	float: right;
-	margin-bottom: 30px;
+    float: right;
 }
 
 .post-form textarea, .post-form input {
@@ -55,18 +69,14 @@ h2{
 
 
 .btnHeader {
-	width: 100%;
+	width: 80%;
 	margin: 0 auto;
-	max-width: 1000px;
+	max-width: 500px;
 }
 .btns {
     margin: 10px;
 }
 
-/* ボタン文字のはみ出し防止 */
-.btn {
-	white-space: normal;
-}
 
 .btn-box {
 	position: relative;
@@ -86,11 +96,4 @@ h2{
 	font-weight: bold;
 	background-color:  #fff; /* タイトル背景色 */
 	color: #aa91f0; /* タイトル文字色 */
-}
-
-
-.page-footer {
-    background-color: #cccccc;
-    margin-top: 0;
-    padding: 20px;
 }
