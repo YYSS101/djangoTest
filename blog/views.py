@@ -9,7 +9,11 @@ from .forms import PostForm, YukyuForm
 	HTML側はkey指定して値にアクセス、アクセスは二重カッコで記載
 	{{ key1.name }}
 
-	
+	get_object_or_404は指定したpkのモデルを引っ張ってくる
+	なければ404エラーを表示する。（使わない場合はServer Errorみたいなよくわからない表示が出てしまう）
+
+	pkはプライマリキー、db.sqlite3の中身見るとidで記されているやつ
+	レコードを直接指定できるようなもの
 '''
 
 def debug_test(request):
