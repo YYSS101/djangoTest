@@ -1,31 +1,35 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2>New post</h2>
+    <h2>休暇申請</h2>
     <form method="POST" class="post-form">
-		{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn">Save</button>
+		{% csrf_token %}	<!--おまじない、そのデータが自分が用意したページで入力されたことを保証-->
+        {{ form.as_p }}		<!--form.as_pは「formの内容をpタグで囲って表示」-->
+        <button type="submit" class="save btn">申請する</button>
 	</form>
 
 	<table class="table table-striped">
 
 		<thead class="thead">
+			<th>取得日</th>
+			<th>期間</th>
+			<th>休暇種類</th>
+			<th>部署</th>
+			<th>名前</th>
 			<th>申請日</th>
-			<th>申請者</th>
-			<th>内容</th>
 			<th>詳細</th>
 		</thead>
 
 		{% for post in posts %}
-
 			<tr>
+				<td>{{ post.start_date }}</td>
+				<td>{{ post.get_kikan_display }}</td>
+				<td>{{ post.get_kyuka_type_display }}</td>
+				<td>{{ post.busyo }}</td>
+				<td>{{ post.name }}</td>
 				<td>{{ post.published_date|date:"Y年n月j日 H:i" }}</td>
-				<td>{{ post.user }}</td>
-				<td>{{ post.title }}</td>
 				<td><a href="{% url 'post_detail' pk=post.pk %}"><i class="fas fa-info-circle"></i></a></td>
 			</tr>
-
 		{% endfor %}
 
 	</table>

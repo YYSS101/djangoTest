@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>休暇申請　確認</h2>
+
+	<table class="table table-striped">
+
+		<thead class="thead">
+			<th>取得日</th>
+			<th>期間</th>
+			<th>休暇種類</th>
+			<th>部署</th>
+			<th>名前</th>
+			<th>申請日</th>
+			<th>詳細</th>
+		</thead>
+
+		<tr>
+			<td>{{ post.start_date }}</td>
+			<td>{{ post.get_kikan_display }}</td>
+			<td>{{ post.get_kyuka_type_display }}</td>
+			<td>{{ post.busyo }}</td>
+			<td>{{ post.name }}</td>
+			<td>{{ post.published_date|date:"Y年n月j日 H:i" }}</td>
+			<td><a href="{% url 'post_detail' pk=post.pk %}"><i class="fas fa-info-circle"></i></a></td>
+		</tr>
+
+	</table>
+
+{% endblock %}
