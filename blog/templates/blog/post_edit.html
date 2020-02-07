@@ -5,12 +5,13 @@
     <form method="POST" class="post-form">
 		{% csrf_token %}	<!--おまじない、そのデータが自分が用意したページで入力されたことを保証-->
         {{ form.as_p }}		<!--form.as_pは「formの内容をpタグで囲って表示」-->
-        <button type="submit" class="save btn">申請する</button>
+        <button type="submit" class="btn btn-success mx-auto d-block">申請する</button>
 	</form>
 
 	<table class="table table-striped">
 
 		<thead class="thead">
+			<th></th>
 			<th>取得日</th>
 			<th>期間</th>
 			<th>休暇種類</th>
@@ -22,6 +23,7 @@
 
 		{% for post in posts %}
 			<tr>
+				<td>{% if post.isFinished %}済{% endif %}</td>
 				<td>{{ post.start_date }}</td>
 				<td>{{ post.get_kikan_display }}</td>
 				<td>{{ post.get_kyuka_type_display }}</td>

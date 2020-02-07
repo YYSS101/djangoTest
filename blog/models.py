@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from datetime import date
 
 '''
 変更したらマイグレーションが必要なので、
@@ -34,7 +35,7 @@ class Yukyu(models.Model):
 	kyuka_type	= models.PositiveSmallIntegerField( verbose_name='休暇種類', choices=[ (1,'有給休暇'), (2,'特別休暇'), (3,'欠勤'), (4,'代休') ] )
 
 	kikan	= models.PositiveSmallIntegerField( verbose_name='期間', choices=[ (1,'AM'), (2,'PM'), (3,'1日'), (4,'2日間'), (5,'3日間'), (6,'4日間'), (7,'5日間'), (8,'6日間') ] )
-	start_date	= models.DateField(verbose_name='取得日', default=timezone.now)
+	start_date	= models.DateField(verbose_name='取得日', default=date.today)
 
 	created_date	= models.DateTimeField(default=timezone.now)
 	published_date	= models.DateTimeField(blank=True, null=True)
@@ -43,5 +44,5 @@ class Yukyu(models.Model):
 		self.published_date = timezone.now()
 		self.save()
 
-	def __str__(self):
-		return self.title
+	def isFinished(self):
+		return self.start_date < date.today()

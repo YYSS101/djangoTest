@@ -14,6 +14,8 @@ from .forms import PostForm, YukyuForm
 
 	pkはプライマリキー、db.sqlite3の中身見るとidで記されているやつ
 	レコードを直接指定できるようなもの
+
+	requestは、HttpRequestオブジェクトだった
 '''
 
 def debug_test(request):
@@ -34,22 +36,33 @@ def post_detail(request, pk):
 
 def post_new(request):
 	# HTMLから"POST"が送られてきた時
-    if request.method == "POST":
+	if request.method == "POST":
 		# 受け取ったPOSTデータを渡す（フォームの入力情報などをここで受け取る）
-        form = YukyuForm(request.POST)
+		form = YukyuForm(request.POST)
+
 		# is_validで正当性チェック
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('post_new')
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.author = request.user
+			post.published_date = timezone.now()
+			post.save()
+			return redirect('post_new')
+			#return render(request, 'blog/post_check.html', {'post': post})
 
 	# 最初のページ表示時の処理
-    else:
-        form = YukyuForm()
-    posts = Yukyu.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:20]
-    return render(request, 'blog/post_edit.html', {'form': form, 'posts': posts})
+	form = YukyuForm()
+	posts = Yukyu.objects.filter(published_date__lte=timezone.now()).order_by('-start_date')[:20]
+	return render(request, 'blog/post_edit.html', {'form': form, 'posts': posts, 'now': timezone.now() })
+
+def post_chk(request):
+	# HTMLから"POST"が送られてきた時
+	if request.method == "POST":
+		post.save()
+		return redirect('post_new')
+
+	return render(request, 'blog/post_check.html', {'post': post})
+
+
 
 def tips_kitei(request):
     return render(request, 'blog/tips_kitei.html')

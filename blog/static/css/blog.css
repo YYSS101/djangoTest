@@ -1,14 +1,17 @@
 
+/*	Header	====================================================================================================*/
+
 .page-header {
     background-color: #00ff;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
+	margin: 0px 0px 20px
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
     font-size: 30pt;
-    text-decoration: none;
+	text-decoration: none;
 }
 
 h2{
@@ -18,7 +21,6 @@ h2{
 	border-left: solid 5px #7db4e6;/*左線*/
 	border-bottom: solid 3px #d7d7d7;/*下線*/
 }
-
 
 
 .content {
@@ -54,6 +56,8 @@ h2{
 }
 
 
+/*	Btn	====================================================================================================*/
+
 .btnHeader {
 	width: 100%;
 	margin: 0 auto;
@@ -88,9 +92,35 @@ h2{
 	color: #aa91f0; /* タイトル文字色 */
 }
 
+/*	Footer	====================================================================================================*/
 
 .page-footer {
     background-color: #cccccc;
     margin-top: 0;
     padding: 20px;
 }
+
+
+/*	Table	====================================================================================================*/
+
+.table_Chk{
+	width: 80%;
+	border-collapse:collapse;
+	margin:0 auto;
+	border-collapse: separate;
+	border-spacing: 5px;
+}
+.table_Chk td,th{
+	padding:10px;
+}
+.table_Chk th{
+	color:#fff;
+	background:#005ab3;
+	margin: 10px;
+	width: 25%;
+}
+.table_Chk td{
+	border-bottom:2px solid #80bcff;
+}
+
+

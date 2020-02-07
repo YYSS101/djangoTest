@@ -1,17 +1,18 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
-        {% if post.published_date %}
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-        {% endif %}
-        <h2>部署</h2>
-        <h3>{{ post.busyo }}</h3>
-        <h2>名前</h2>
-        <h3>{{ post.name }}</h3>
-        <h2>理由</h2>
-        <h3>{{ post.riyuu }}</h3>
-    </div>
+
+<table class="table_Chk">
+	<tr><th>取得日		</th><td>{{ post.start_date }}</td></tr>
+	<tr><th>期間		</th><td>{{ post.get_kikan_display }}</td></tr>
+	<tr><th>休暇種類	</th><td>{{ post.get_kyuka_type_display }}</td></tr>
+</table>
+<br>
+<table class="table_Chk">
+	<tr><th>部署		</th><td>{{ post.busyo }}</td></tr>
+	<tr><th>名前		</th><td>{{ post.name }}</td></tr>
+	<tr><th>理由		</th><td>{{ post.riyuu }}</td></tr>
+	<tr><th>申請日		</th><td>{{ post.published_date }}</td></tr>
+</table>
+
 {% endblock %}
