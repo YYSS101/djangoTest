@@ -30,9 +30,13 @@ def post_list(request):
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
+	# HTMLから"POST"が送られてきた時
+	if request.method == "POST":
+		post.delete();
+
 	# 指定したpkが存在しない場合、404エラー画面を表示させる
-    post = get_object_or_404(Yukyu, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+	post = get_object_or_404(Yukyu, pk=pk)
+	return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_new(request):
 	# HTMLから"POST"が送られてきた時
@@ -66,3 +70,4 @@ def post_chk(request):
 
 def tips_kitei(request):
     return render(request, 'blog/tips_kitei.html')
+

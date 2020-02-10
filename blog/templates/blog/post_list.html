@@ -2,22 +2,27 @@
 
 {% block content %}
 
+{% load static %}
+
 <div class="row">
 	<div class="col-md-4">
 		<div class="btnHeader">
 
+			
+
 			<div class="btn-box"><span class="btn_box-title">文章資料</span>
+				<img src="{% static 'img/tablet_setsumei_business_woman.png' %}" class="img-fluid rounded-circle">
 				<a class="btns" href="{% url 'tips_kitei' %}">
-					<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-book-open"></i> 社内規則</button>
+					<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-book-open"></i> 社内規則</button>
 				</a>
 				<a class="btns" href="{% url 'page_non' %}">
-					<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-building"></i> 職制表</button>
+					<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-building"></i> 職制表</button>
 				</a>
 				<a class="btns" href="{% url 'page_non' %}">
-					<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-cogs"></i> 技術資料</button>
+					<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-cogs"></i> 技術資料</button>
 				</a>
 				<a class="btns" href="{% url 'page_non' %}">
-					<button type="submit" class="btn btn-info btn-lg btn-block"><i class="fas fa-user-alt"></i> 社内ルール</button>
+					<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-user-alt"></i> 社内ルール</button>
 				</a>
 			</div>
 
@@ -26,28 +31,13 @@
 
 	<div class="col-md-4">
 
-		<div class="btnHeader">
-			<div class="btn-box"><span class="btn_box-title">管理</span>
-				<a class="btns" href="{% url 'page_non' %}">
-					<button type="submit" class="btn btn-success btn-lg btn-block"><i class="fas fa-calendar-alt"></i> 日程表</button>
-				</a>
-			</div>
-		</div>
-
-		<div class="btnHeader">
-			<div class="btn-box"><span class="btn_box-title">掲示板</span>
-				<a class="btns" href="{% url 'page_non' %}">
-					<button type="submit" class="btn btn-success btn-lg btn-block"><i class="fas fa-chalkboard-teacher"></i> ご意見箱</button>
-				</a>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="col-md-4">
+		
 
 		<div class="btnHeader">
 			<div class="btn-box"><span class="btn_box-title">申請</span>
+
+				<img src="{% static 'img/document_hanko_bunka.png' %}" class="img-fluid rounded-circle">
+
 				<a class="btns" href="{% url 'post_new' %}">
 					<button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-mug-hot"></i> 有給申請</button>
 				</a>
@@ -64,7 +54,27 @@
 		</div>
 
 	</div>
+	<div class="col-md-4">
 
+		
+		<div class="btn-box"><span class="btn_box-title">その他</span>
+			<img src="{% static 'img/group_business_syukatsu.png' %}" class="img-fluid rounded-circle">
+
+			<a class="btns" href="DB\kisoku.lnk">
+				<button type="submit" class="btn btn-primary btn-lg btn-block">
+					<i class="fas fa-calendar-alt"></i> 日程表</button>
+			</a>
+			<a class="btns" href="https://forms.gle/uCXE2NvYFDmZcqyM6" target="_blank">
+				<button type="submit" class="btn btn-primary btn-lg btn-block">
+					<i class="fas fa-chalkboard-teacher"></i> ご意見箱</button>
+			</a>
+			<a class="btns" href="http://www.ts-tsukasa.jp/" target="_blank">
+				<button type="submit" class="btn btn-primary btn-lg btn-block">
+					<i class="fas fa-home"></i> ホームページ</button>
+			</a>
+		</div>
+
+	</div>
 </div>
 
 
